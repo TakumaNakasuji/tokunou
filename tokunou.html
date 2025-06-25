@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>プロスピ特能シミュレーター</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f7f7f7;
+    }                                  
+    h1 {
+      text-align: center;
+      margin-bottom: 1em;
+      font-size: 1.8em;
+      line-height: 1.4em;
+    }
+    table {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      border-collapse: collapse;
+    }
+    td, th {
+      padding: 10px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    select, input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+    .bar {
+      height: 24px;
+      margin: 5px 0;
+      background-color: #ccc;
+      position: relative;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5px;
+      font-weight: bold;                                                                        
+      color: white;
+    }
+    .fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      z-index: 0;
+    }
+    .bar-text {
+      z-index: 1;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .bar-text span:last-child {
+      color: black;
+    }
+    .green .fill { background-color: #4caf50; }
+    .red .fill { background-color: #f44336; }
+    .bar-row {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px auto;
+      max-width: 800px;
+    }
+    .bar-group {
+      flex: 1;
+      margin: 0 10px;
+    }
+    .bar-wrapper {
+      margin-bottom: 15px;
+    }
+    .button-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 30px;
+    }
+    .button-group button {
+      padding: 12px 24px;
+      font-size: 1em;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    特殊能力<br>シミュレーター
+  </h1>
+ 
+  <table>
+    <tr>
+      <th>バッター</th>
+      <th>ピッチャー</th>
+    </tr>
+    <tr>
+      <td><label>ミート:<input type="number" id="meat" value="70" oninput="calculate()"></label></td>
+      <td><label>球　威:<input type="number" id="velocity" value="70" oninput="calculate()"></label></td>
+    </tr>
+    <tr>
+      <td><label>パワー:<input type="number" id="power" value="70" oninput="calculate()"></label></td>
+      <td><label>制　球:<input type="number" id="control" value="70" oninput="calculate()"></label></td>
+    </tr>
+    <tr>
+      <td>特殊能力１:<select id="tokuno1" onchange="calculate()"></select></td>
+      <td>特殊能力１:<select disabled style="width: 100%; padding: 12px;"><option>未設定</option></select></td>
+    </tr>
+    <tr>
+      <td>特殊能力２:<select id="tokuno2" onchange="calculate()"></select></td>
+      <td>特殊能力２:<select disabled style="width: 100%; padding: 12px;"><option>未設定</option></select></td>
+    </tr>
+    <tr>
+      <td>特殊能力３:<select id="tokuno3" onchange="calculate()"></select></td>
+      <td>特殊能力３:<select disabled style="width: 100%; padding: 12px;"><option>未設定</option></select></td>
+    </tr>
+  </table>
+ 
+  <div class="bar-row">
+    <div class="bar-group">
+      <div class="bar-wrapper">ミート:
+        <div class="bar green">
+          <div class="fill" id="meatFill"></div>
+          <div class="bar-text"><span id="meatValue">0</span><span id="meatDiff"></span></div>
+        </div>
+      </div>
+      <div class="bar-wrapper">パワー:
+        <div class="bar green">
+          <div class="fill" id="powerFill"></div>
+          <div class="bar-text"><span id="powerValue">0</span><span id="powerDiff"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="bar-group">
+      <div class="bar-wrapper">球　威:
+        <div class="bar red">
+          <div class="fill" id="velocityFill"></div>
+          <div class="bar-text"><span id="velocityValue">0</span><span id="velocityDiff"></span></div>
+        </div>
+      </div>
+      <div class="bar-wrapper">制　球:
+        <div class="bar red">
+          <div class="fill" id="controlFill"></div>
+          <div class="bar-text"><span id="controlValue">0</span><span id="controlDiff"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <div class="button-group">
+    <button onclick="toggleAbilities()">特殊能力ON/OFF</button>
+    <button onclick="resetForm()">リセット</button>
+  </div>
+ 
+  <script>
+    const tokunoData = {
+      group1: [
+        { name: "超アーチスト", meat: 0, power: 9 },
+        { name: "超ラインドライブ", meat: 0, power: 9 },
+        { name: "超パワーヒッター", meat: 0, power: 9 },
+        { name: "超広角打法", meat: 5, power: 5 },
+        { name: "超アベレージヒッター", meat: 10, power: 0 },
+      ],
+      group2: [
+        { name: "アーチスト・改", meat: 0, power: 7 },
+        { name: "ラインドライブ・改", meat: 0, power: 7 },
+        { name: "チャンス・改", meat: 7, power: 7 },
+        { name: "広角打法・改", meat: 3, power: 3 },
+        { name: "パワーヒッター・改", meat: 0, power: 7 },
+      ],
+      group3: [
+        { name: "アーチスト", meat: 0, power: 5 },
+        { name: "ラインドライブ", meat: 0, power: 5 },
+        { name: "チャンス", meat: 5, power: 5 },
+        { name: "広角打法", meat: 2, power: 2 },
+        { name: "パワーヒッター", meat: 0, power: 5 },
+      ]
+    };
+ 
+    let abilitiesOn = true;
+ 
+    function toggleAbilities() {
+      abilitiesOn = !abilitiesOn;
+      calculate();
+    }
+ 
+    function populateDropdowns() {
+      ["tokuno1", "tokuno2", "tokuno3"].forEach((id, index) => {
+        const select = document.getElementById(id);
+        select.innerHTML = "";
+        const defaultOption = document.createElement("option");
+        defaultOption.value = "";
+        defaultOption.text = "選択なし";
+        select.appendChild(defaultOption);
+        tokunoData[`group${index + 1}`].forEach(item => {
+          const option = document.createElement("option");
+          option.value = JSON.stringify(item);
+          option.text = item.name;
+          select.appendChild(option);
+        });
+      });
+    }
+ 
+    function calculate() {
+      ["meat", "power", "velocity", "control"].forEach(id => {
+        const input = document.getElementById(id);
+        if (Number(input.value) > 99) input.value = 99;
+      });
+ 
+      const base = {
+        meat: Number(document.getElementById("meat").value),
+        power: Number(document.getElementById("power").value),
+        velocity: Number(document.getElementById("velocity").value),
+        control: Number(document.getElementById("control").value),
+      };
+ 
+      let bonus = { meat: 0, power: 0 };
+      if (abilitiesOn) {
+        ["tokuno1", "tokuno2", "tokuno3"].forEach(id => {
+          const val = document.getElementById(id).value;
+          if (val) {
+            const data = JSON.parse(val);
+            bonus.meat += data.meat;
+            bonus.power += data.power;
+          }
+        });
+      }
+ 
+      const final = {
+        meat: base.meat + bonus.meat,
+        power: base.power + bonus.power,
+        velocity: base.velocity,
+        control: base.control
+      };
+ 
+      updateBar("meat", final.meat, bonus.meat);
+      updateBar("power", final.power, bonus.power);
+      updateBar("velocity", final.velocity, 0);
+      updateBar("control", final.control, 0);
+    }
+ 
+    function updateBar(stat, value, diff) {
+      const fill = document.getElementById(stat + "Fill");
+      const valText = document.getElementById(stat + "Value");
+      const diffText = document.getElementById(stat + "Diff");
+ 
+      const percent = Math.min(100, (value / 120) * 100);
+      fill.style.width = percent + "%";
+      valText.textContent = value;
+      diffText.textContent = diff > 0 ? `+${diff}` : (diff < 0 ? `${diff}` : "");
+    }
+ 
+    function resetForm() {
+      document.getElementById("meat").value = 70;
+      document.getElementById("power").value = 70;
+      document.getElementById("velocity").value = 70;
+      document.getElementById("control").value = 70;
+      document.getElementById("tokuno1").selectedIndex = 0;
+      document.getElementById("tokuno2").selectedIndex = 0;
+      document.getElementById("tokuno3").selectedIndex = 0;
+      abilitiesOn = true;
+      calculate();
+    }
+ 
+    populateDropdowns();
+    calculate();
+  </script>
+</body>
+</html>
