@@ -1,0 +1,920 @@
+{\rtf1\ansi\ansicpg932\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset128 HiraginoSans-W4;\f2\fnil\fcharset128 HiraMinProN-W3;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+<!DOCTYPE html>
+\f1 \
+
+\f0 <html lang="ja">
+\f1 \
+
+\f0 <head>
+\f1 \
+
+\f0 \'a0 <meta charset="UTF-8" />
+\f1 \
+
+\f0 \'a0 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+\f1 \
+
+\f0 \'a0 <title>
+\f2 \'83\'76\'83\'8d\'83\'58\'83\'73\'93\'c1\'94\'5c\'83\'56\'83\'7e\'83\'85\'83\'8c\'81\'5b\'83\'5e\'81\'5b
+\f0 </title>
+\f1 \
+
+\f0 \'a0 <style>
+\f1 \
+
+\f0 \'a0\'a0\'a0 body \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 font-family: sans-serif;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 padding: 20px;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 background: #f7f7f7;
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f1 \
+
+\f0 \'a0\'a0\'a0 h1 \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 text-align: center;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 margin-bottom: 1em;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 font-size: 1.8em;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 line-height: 1.4em;
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0\'a0\'a0 table \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 width: 100%;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 max-width: 800px;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 margin: auto;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 border-collapse: collapse;
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0\'a0\'a0 td, th \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 padding: 10px;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 text-align: center;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 vertical-align: middle;
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0\'a0\'a0 select, input[type="number"] \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 width: 100%;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 padding: 12px;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 font-size: 1em;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 box-sizing: border-box;
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0\'a0\'a0 .bar \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 height: 24px;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 margin: 5px 0;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 background-color: #ccc;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 position: relative;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 flex: 1;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 display: flex;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 align-items: center;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 justify-content: space-between;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 padding: 0 5px;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 font-weight: bold;\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 color: white;
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0\'a0\'a0 .fill \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 position: absolute;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 top: 0;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 left: 0;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 height: 100%;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 z-index: 0;
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0\'a0\'a0 .bar-text \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 z-index: 1;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 width: 100%;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 display: flex;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 justify-content: space-between;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 align-items: center;
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0\'a0\'a0 .bar-text span:last-child \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 color: black;
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0\'a0\'a0 .green .fill \{ background-color: #4caf50; \}
+\f1 \
+
+\f0 \'a0\'a0\'a0 .red .fill \{ background-color: #f44336; \}
+\f1 \
+
+\f0 \'a0\'a0\'a0 .bar-row \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 display: flex;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 justify-content: space-between;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 margin: 20px auto;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 max-width: 800px;
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0\'a0\'a0 .bar-group \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 flex: 1;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 margin: 0 10px;
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0\'a0\'a0 .bar-wrapper \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 margin-bottom: 15px;
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0\'a0\'a0 .button-group \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 display: flex;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 flex-direction: column;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 align-items: center;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 gap: 15px;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 margin-top: 30px;
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0\'a0\'a0 .button-group button \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 padding: 12px 24px;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 font-size: 1em;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 width: 200px;
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0 </style>
+\f1 \
+
+\f0 </head>
+\f1 \
+
+\f0 <body>
+\f1 \
+
+\f0 \'a0 <h1>
+\f1 \
+
+\f0 \'a0\'a0\'a0 
+\f2 \'93\'c1\'8e\'ea\'94\'5c\'97\'cd
+\f0 <br>
+\f2 \'83\'56\'83\'7e\'83\'85\'83\'8c\'81\'5b\'83\'5e\'81\'5b
+\f1 \
+
+\f0 \'a0 </h1>
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0 <table>
+\f1 \
+
+\f0 \'a0\'a0\'a0 <tr>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <th>
+\f2 \'83\'6f\'83\'62\'83\'5e\'81\'5b
+\f0 </th>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <th>
+\f2 \'83\'73\'83\'62\'83\'60\'83\'83\'81\'5b
+\f0 </th>
+\f1 \
+
+\f0 \'a0\'a0\'a0 </tr>
+\f1 \
+
+\f0 \'a0\'a0\'a0 <tr>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <td><label>
+\f2 \'83\'7e\'81\'5b\'83\'67
+\f0 :<input type="number" id="meat" value="70" oninput="calculate()"></label></td>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <td><label>
+\f2 \'8b\'85\'81\'40\'88\'d0
+\f0 :<input type="number" id="velocity" value="70" oninput="calculate()"></label></td>
+\f1 \
+
+\f0 \'a0\'a0\'a0 </tr>
+\f1 \
+
+\f0 \'a0\'a0\'a0 <tr>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <td><label>
+\f2 \'83\'70\'83\'8f\'81\'5b
+\f0 :<input type="number" id="power" value="70" oninput="calculate()"></label></td>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <td><label>
+\f2 \'90\'a7\'81\'40\'8b\'85
+\f0 :<input type="number" id="control" value="70" oninput="calculate()"></label></td>
+\f1 \
+
+\f0 \'a0\'a0\'a0 </tr>
+\f1 \
+
+\f0 \'a0\'a0\'a0 <tr>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <td>
+\f2 \'93\'c1\'8e\'ea\'94\'5c\'97\'cd\'82\'50
+\f0 :<select id="tokuno1" onchange="calculate()"></select></td>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <td>
+\f2 \'93\'c1\'8e\'ea\'94\'5c\'97\'cd\'82\'50
+\f0 :<select disabled style="width: 100%; padding: 12px;"><option>
+\f2 \'96\'a2\'90\'dd\'92\'e8
+\f0 </option></select></td>
+\f1 \
+
+\f0 \'a0\'a0\'a0 </tr>
+\f1 \
+
+\f0 \'a0\'a0\'a0 <tr>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <td>
+\f2 \'93\'c1\'8e\'ea\'94\'5c\'97\'cd\'82\'51
+\f0 :<select id="tokuno2" onchange="calculate()"></select></td>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <td>
+\f2 \'93\'c1\'8e\'ea\'94\'5c\'97\'cd\'82\'51
+\f0 :<select disabled style="width: 100%; padding: 12px;"><option>
+\f2 \'96\'a2\'90\'dd\'92\'e8
+\f0 </option></select></td>
+\f1 \
+
+\f0 \'a0\'a0\'a0 </tr>
+\f1 \
+
+\f0 \'a0\'a0\'a0 <tr>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <td>
+\f2 \'93\'c1\'8e\'ea\'94\'5c\'97\'cd\'82\'52
+\f0 :<select id="tokuno3" onchange="calculate()"></select></td>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <td>
+\f2 \'93\'c1\'8e\'ea\'94\'5c\'97\'cd\'82\'52
+\f0 :<select disabled style="width: 100%; padding: 12px;"><option>
+\f2 \'96\'a2\'90\'dd\'92\'e8
+\f0 </option></select></td>
+\f1 \
+
+\f0 \'a0\'a0\'a0 </tr>
+\f1 \
+
+\f0 \'a0 </table>
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0 <div class="bar-row">
+\f1 \
+
+\f0 \'a0\'a0\'a0 <div class="bar-group">
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <div class="bar-wrapper">
+\f2 \'83\'7e\'81\'5b\'83\'67
+\f0 :
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 <div class="bar green">
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 <div class="fill" id="meatFill"></div>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 <div class="bar-text"><span id="meatValue">0</span><span id="meatDiff"></span></div>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 </div>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 </div>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <div class="bar-wrapper">
+\f2 \'83\'70\'83\'8f\'81\'5b
+\f0 :
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 <div class="bar green">
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 <div class="fill" id="powerFill"></div>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 <div class="bar-text"><span id="powerValue">0</span><span id="powerDiff"></span></div>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 </div>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 </div>
+\f1 \
+
+\f0 \'a0\'a0\'a0 </div>
+\f1 \
+
+\f0 \'a0\'a0\'a0 <div class="bar-group">
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <div class="bar-wrapper">
+\f2 \'8b\'85\'81\'40\'88\'d0
+\f0 :
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 <div class="bar red">
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 <div class="fill" id="velocityFill"></div>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 <div class="bar-text"><span id="velocityValue">0</span><span id="velocityDiff"></span></div>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 </div>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 </div>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 <div class="bar-wrapper">
+\f2 \'90\'a7\'81\'40\'8b\'85
+\f0 :
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 <div class="bar red">
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 <div class="fill" id="controlFill"></div>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 <div class="bar-text"><span id="controlValue">0</span><span id="controlDiff"></span></div>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 </div>
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 </div>
+\f1 \
+
+\f0 \'a0\'a0\'a0 </div>
+\f1 \
+
+\f0 \'a0 </div>
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0 <div class="button-group">
+\f1 \
+
+\f0 \'a0\'a0\'a0 <button onclick="toggleAbilities()">
+\f2 \'93\'c1\'8e\'ea\'94\'5c\'97\'cd
+\f0 ON/OFF</button>
+\f1 \
+
+\f0 \'a0\'a0\'a0 <button onclick="resetForm()">
+\f2 \'83\'8a\'83\'5a\'83\'62\'83\'67
+\f0 </button>
+\f1 \
+
+\f0 \'a0 </div>
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0 <script>
+\f1 \
+
+\f0 \'a0\'a0\'a0 const tokunoData = \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 group1: [
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \{ name: "
+\f2 \'92\'b4\'83\'41\'81\'5b\'83\'60\'83\'58\'83\'67
+\f0 ", meat: 0, power: 9 \},
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \{ name: "
+\f2 \'92\'b4\'83\'89\'83\'43\'83\'93\'83\'68\'83\'89\'83\'43\'83\'75
+\f0 ", meat: 0, power: 9 \},
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \{ name: "
+\f2 \'92\'b4\'83\'70\'83\'8f\'81\'5b\'83\'71\'83\'62\'83\'5e\'81\'5b
+\f0 ", meat: 0, power: 9 \},
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \{ name: "
+\f2 \'92\'b4\'8d\'4c\'8a\'70\'91\'c5\'96\'40
+\f0 ", meat: 5, power: 5 \},
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \{ name: "
+\f2 \'92\'b4\'83\'41\'83\'78\'83\'8c\'81\'5b\'83\'57\'83\'71\'83\'62\'83\'5e\'81\'5b
+\f0 ", meat: 10, power: 0 \},
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 ],
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 group2: [
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \{ name: "
+\f2 \'83\'41\'81\'5b\'83\'60\'83\'58\'83\'67\'81\'45\'89\'fc
+\f0 ", meat: 0, power: 7 \},
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \{ name: "
+\f2 \'83\'89\'83\'43\'83\'93\'83\'68\'83\'89\'83\'43\'83\'75\'81\'45\'89\'fc
+\f0 ", meat: 0, power: 7 \},
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \{ name: "
+\f2 \'83\'60\'83\'83\'83\'93\'83\'58\'81\'45\'89\'fc
+\f0 ", meat: 7, power: 7 \},
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \{ name: "
+\f2 \'8d\'4c\'8a\'70\'91\'c5\'96\'40\'81\'45\'89\'fc
+\f0 ", meat: 3, power: 3 \},
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \{ name: "
+\f2 \'83\'70\'83\'8f\'81\'5b\'83\'71\'83\'62\'83\'5e\'81\'5b\'81\'45\'89\'fc
+\f0 ", meat: 0, power: 7 \},
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 ],
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 group3: [
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \{ name: "
+\f2 \'83\'41\'81\'5b\'83\'60\'83\'58\'83\'67
+\f0 ", meat: 0, power: 5 \},
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \{ name: "
+\f2 \'83\'89\'83\'43\'83\'93\'83\'68\'83\'89\'83\'43\'83\'75
+\f0 ", meat: 0, power: 5 \},
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \{ name: "
+\f2 \'83\'60\'83\'83\'83\'93\'83\'58
+\f0 ", meat: 5, power: 5 \},
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \{ name: "
+\f2 \'8d\'4c\'8a\'70\'91\'c5\'96\'40
+\f0 ", meat: 2, power: 2 \},
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \{ name: "
+\f2 \'83\'70\'83\'8f\'81\'5b\'83\'71\'83\'62\'83\'5e\'81\'5b
+\f0 ", meat: 0, power: 5 \},
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 ]
+\f1 \
+
+\f0 \'a0\'a0\'a0 \};
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0\'a0\'a0 let abilitiesOn = true;
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0\'a0\'a0 function toggleAbilities() \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 abilitiesOn = !abilitiesOn;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 calculate();
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0\'a0\'a0 function populateDropdowns() \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 ["tokuno1", "tokuno2", "tokuno3"].forEach((id, index) => \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 const select = document.getElementById(id);
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 select.innerHTML = "";
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 const defaultOption = document.createElement("option");
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 defaultOption.value = "";
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 defaultOption.text = "
+\f2 \'91\'49\'91\'f0\'82\'c8\'82\'b5
+\f0 ";
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 select.appendChild(defaultOption);
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 tokunoData[`group$\{index + 1\}`].forEach(item => \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 const option = document.createElement("option");
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 option.value = JSON.stringify(item);
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 option.text = item.name;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 select.appendChild(option);
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \});
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 \});
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0\'a0\'a0 function calculate() \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 ["meat", "power", "velocity", "control"].forEach(id => \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 const input = document.getElementById(id);
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 if (Number(input.value) > 99) input.value = 99;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 \});
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 const base = \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 meat: Number(document.getElementById("meat").value),
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 power: Number(document.getElementById("power").value),
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 velocity: Number(document.getElementById("velocity").value),
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 control: Number(document.getElementById("control").value),
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 \};
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 let bonus = \{ meat: 0, power: 0 \};
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 if (abilitiesOn) \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 ["tokuno1", "tokuno2", "tokuno3"].forEach(id => \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 const val = document.getElementById(id).value;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 if (val) \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 const data = JSON.parse(val);
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 bonus.meat += data.meat;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 bonus.power += data.power;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 \});
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 const final = \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 meat: base.meat + bonus.meat,
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 power: base.power + bonus.power,
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 velocity: base.velocity,
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0\'a0\'a0 control: base.control
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 \};
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 updateBar("meat", final.meat, bonus.meat);
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 updateBar("power", final.power, bonus.power);
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 updateBar("velocity", final.velocity, 0);
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 updateBar("control", final.control, 0);
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0\'a0\'a0 function updateBar(stat, value, diff) \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 const fill = document.getElementById(stat + "Fill");
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 const valText = document.getElementById(stat + "Value");
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 const diffText = document.getElementById(stat + "Diff");
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 const percent = Math.min(100, (value / 120) * 100);
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 fill.style.width = percent + "%";
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 valText.textContent = value;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 diffText.textContent = diff > 0 ? `+$\{diff\}` : (diff < 0 ? `$\{diff\}` : "");
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0\'a0\'a0 function resetForm() \{
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 document.getElementById("meat").value = 70;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 document.getElementById("power").value = 70;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 document.getElementById("velocity").value = 70;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 document.getElementById("control").value = 70;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 document.getElementById("tokuno1").selectedIndex = 0;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 document.getElementById("tokuno2").selectedIndex = 0;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 document.getElementById("tokuno3").selectedIndex = 0;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 abilitiesOn = true;
+\f1 \
+
+\f0 \'a0\'a0\'a0\'a0\'a0 calculate();
+\f1 \
+
+\f0 \'a0\'a0\'a0 \}
+\f1 \
+
+\f0 \'a0
+\f1 \
+
+\f0 \'a0\'a0\'a0 populateDropdowns();
+\f1 \
+
+\f0 \'a0\'a0\'a0 calculate();
+\f1 \
+
+\f0 \'a0 </script>
+\f1 \
+
+\f0 </body>
+\f1 \
+
+\f0 </html>
+\f1 \
+}
